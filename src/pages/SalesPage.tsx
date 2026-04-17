@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Page, Product } from '../types';
 
 /**
@@ -8,7 +8,7 @@ export function SalesPage({ onNavigate, storeId }: { onNavigate: (page: Page) =>
   const [products, setProducts] = useState<Product[]>([]);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (storeId) {
       fetch(`http://localhost:8001/api/v1/products/?store_id=${storeId}`)
         .then(res => res.json())

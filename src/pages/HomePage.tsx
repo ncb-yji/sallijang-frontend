@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { formatCountdown } from '../utils/timeUtils';
 import type { Product } from '../types';
 
@@ -74,7 +74,7 @@ export function HomePage({ onNavigate, onNavigateToCart, cartCount, now, isPcVer
   const scrollRef = useRef<HTMLDivElement>(null);
   const dragState = useRef({ isDown: false, startX: 0, scrollLeft: 0 });
 
-  const onMouseDown = (e: React.MouseEvent) => {
+  const onMouseDown = (e: MouseEvent) => {
     dragState.current.isDown = true;
     if (scrollRef.current) {
       dragState.current.startX = e.pageX - scrollRef.current.offsetLeft;
@@ -82,7 +82,7 @@ export function HomePage({ onNavigate, onNavigateToCart, cartCount, now, isPcVer
     }
   };
   const onMouseLeaveOrUp = () => { dragState.current.isDown = false; };
-  const onMouseMove = (e: React.MouseEvent) => {
+  const onMouseMove = (e: MouseEvent) => {
     if (!dragState.current.isDown || !scrollRef.current) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
@@ -101,9 +101,9 @@ export function HomePage({ onNavigate, onNavigateToCart, cartCount, now, isPcVer
   const markRead = (id: number) => setNotifications(prev => prev.map(n => n.id === id ? { ...n, isRead: true } : n));
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [userLoc, setUserLoc] = useState<{lat: number, lng: number} | null>(null);
+  const [_userLoc, setUserLoc] = useState<{lat: number, lng: number} | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // 1. 위치 정보 획득 시도 (거부 시 기본 위치인 '망원역' 주변 지정)
     const fetchWithLocation = (lat?: number, lng?: number) => {
        const url = (lat !== undefined && lng !== undefined) 
