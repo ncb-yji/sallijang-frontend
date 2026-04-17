@@ -1,5 +1,5 @@
 # 1단계: 빌드 단계 (Build Stage)
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
