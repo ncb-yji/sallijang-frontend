@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type MouseEvent } from 'react';
 import { formatCountdown } from '../utils/timeUtils';
 import type { Product } from '../types';
 
