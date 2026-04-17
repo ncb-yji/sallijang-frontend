@@ -1,4 +1,3 @@
-import React from 'react';
 
 /**
  * 찜한 가게 리스트를 보여주는 페이지.

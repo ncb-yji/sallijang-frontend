@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Page } from '../types';
 import { MenuList } from '../components/SharedComponents';
 
@@ -10,13 +10,13 @@ interface StoreInfo {
 /**
  * 마이페이지 컴포넌트.
  * 판매자 혹은 유저의 프로필 및 각종 메뉴를 표시합니다.
- * userName, userId를 App.tsx에서 전달받아 실제 데이터를 표시합니다.
+ * userName, userId, storeId를 App.tsx에서 전달받아 실제 데이터를 표시합니다.
  */
-export function MyPage({ onNavigate, userRole, userId, userName }: {
+export function MyPage({ onNavigate, userRole, userId, storeId, userName }: {
   onNavigate: (page: Page) => void;
   userRole?: 'USER' | 'SELLER';
   userId?: number | null;
-
+  storeId?: number | null;
   userName?: string;
 }) {
   const [storeInfo, setStoreInfo] = useState<StoreInfo | null>(null);

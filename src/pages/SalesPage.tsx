@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Page, Product } from '../types';
-import { DUMMY_PRODUCTS } from '../data';
 
 /**
  * 판매자가 등록한 상품을 관리하는 페이지.
