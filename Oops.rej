@@ -1,0 +1,4 @@
+@@ -70,2 +71,3 @@
+           {currentPage === 'my' && <MyPage onNavigate={navigateTo} />}
+           {currentPage === 'wishlist' && <WishlistPage />}
++          {currentPage === 'sales' && <div className="p-4 pt-20 text-center font-bold">판매 페이지</div>}

@@ -1,0 +1,5 @@
+@@ -62,3 +62,3 @@
+         <div className={`flex-1 overflow-y-auto ${currentPage !== 'detail' && currentPage !== 'payment' && currentPage !== 'complete' && currentPage !== 'login' ? 'pb-20' : ''}`}>
+-          {currentPage === 'login' && <LoginPage onLogin={(role) => { setUserRole(role); navigateTo('home'); }} />}
++          {currentPage === 'login' && <LoginPage onLogin={(role) => { setUserRole(role); navigateTo(role === 'SELLER' ? 'seller_home' : 'home'); }} />}
+           {currentPage === 'home' && <HomePage onNavigate={(p: number) => navigateTo('detail', p)} now={now} />}
